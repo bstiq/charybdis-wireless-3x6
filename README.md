@@ -1,184 +1,251 @@
-# Charybdis Wireless (3x6 aka Mini) Guide
-![wireless charybdis](./images/DSC08373.jpg "My build")
+# Wireless-Charybdis-Mini-3x6-Build-Guide
 
-#### Table of contents
-* [Before we begin](#before-we-begin)
-* [Disclaimer](#disclaimer)
-* [Build Guide](#build-guide)
-    * [1. Required Parts](#step-1-required-parts)
-    * [2. Assembly](#step-2-assembly)
-    * [3. Software](#step-3-software)
-* [Thanks](#thanks)
+![pmw3610_pcb](./images/white_keys.png "Component Placement")
 
-# Before we begin
+# Intro
 
-The Charybdis was created and designed by [Bastard Keyboards](https://bastardkb.com/) so I take no credit in the creation or design. To learn more about the Charybdis itself, read about it on [Charybdis Github](https://github.com/Bastardkb/Charybdis) repo. 
+This repository is a comprehensive build guide for the Charybdis keyboard, which is an open source, ergonomic keyboard created by [Bastard Keyboards](https://github.com/Bastardkb/Charybdis) and graciously shared with the community.
 
-The purpose of this guide is mainly to take a note on what I have done to building a Wireless (Bluetooth) Charybdis, since there is almost no written guide when it comes to building a Wireless Charybdis. I am going to build a 3x6 Charybdis Mini, therefore my guide will be specifically for that. If you are planning to build Charybdis Nano (or add a rotary knob), etc.. Please fork and tweak it as you like (with reference please).
+This guide is a log of all the steps I took in my build process, and for the most part is just a long winded version of Eren Atas' [supremely helpful build guide](https://github.com/erenatas/charybdis-wireless-3x6/blob/master/README.md).
 
-**Important notes:**
-- As of writing this setup does not support RGB LEDs.
+**Join the Community**
 
-- The necessary files for PCBs and 3D files are scattered across Github, I will be referring to the each file specifically in this guide.
+For any questions, clarifications, or simply to connect with fellow Charybdis builders, feel free to join the Bastard Keyboards [Discord community](http://www.bstkbd.com/discord).
 
-# Disclaimer 
-**Follow at your own risk**, I am not liable for anything that does not work. If you are unsure of something I would suggest you stop by the Bastard Keyboards discord if you have questions. 
+**Disclaimer**
+
+This guide serves as a resource to assist you in building your Charybdis. I assume no responsibility for any damages or malfunctions that may occur during the build process.
 
 # Build Guide
 
-## Step 1: Required Parts
+## Bill of Materials
+
+These are all the components that need to be ordered to build the keyboard.
+
 ### PCBs
-I have ordered PCBs from JLCPCB.
 
-For PCBs, most important part is, thumb parts needs to be thinner than usual. For building a nano or mini 0.8mm is enough, but for a full size, 0.6mm is recommended as flexibility is required. I did not change rest of the settings for other parts.
-
-#### PMW3610 Breakout
-[Link to Void's repo](https://github.com/victorlucachi/charybdis-pmw3610-breakout/tree/nicenano/production)
-
-For this PCB, you will need to solder PMW3610 later.
-
-For the assembly, JLCPCB did not have `TCR2EF19`, which I replaced it with `TLV70018DDCR`:
-```
-#(Old) TCR2EF19:
-73dB@(1kHz) 200mA Fixed 1.9V Positive 5.5V SOT-23-5 Linear Voltage Regulators (LDO) ROHS
+| **Part**                                                                                                 | **Quantity** |
+| -------------------------------------------------------------------------------------------------------- | ------------ |
+| [PMW3610 Breakout](https://github.com/victorlucachi/charybdis-pmw3610-breakout/tree/nicenano/production) | 1            |
+| [Nano Holder](https://github.com/olidacombe/Elite-C-holder/tree/nicenano/adapter/production)             | 1            |
+| [Thumb Right (0.8 thickness)](https://github.com/Bastardkb/Charybdis-PCB-thumbs/releases/tag/2.01)       | 1            |
+| [Thumb Left (0.8 thickness)](https://github.com/Bastardkb/TBK-Mini-PCB-thumb-cluster/releases/tag/2.1)   | 1            |
+| [Plate (0.8 thickness)](https://github.com/Bastardkb/TBK-Mini-PCB-plate/releases/tag/2.21)               | 1            |
 
 
-#(New) TLV70018DDCR:
-68dB@(1kHz) 200mA Fixed 1.8V Positive 5.5V SOT-23-5 Linear Voltage Regulators (LDO) ROHS
-```
+I ordered the PCBs from [JLCPCB](https://jlcpcb.com/).
 
-#### Nice!Nano Holder
-[Link to olidacombe's repo](https://github.com/olidacombe/Elite-C-holder/tree/nicenano/adapter/production)
+:warning: **A thickness of 0.8 or less** must be set for the left thumb, right thumb, and plate PCBs.
 
-This PCB Design supports having a power switch that makes use of audio jack hole.
+The gerber files have all been pulled from other repositories and are stored in the PCB Gerber Files directory. However, each source repository is linked in the part list above for reference.
 
-#### PCB Thumbs
-[Link to PCB thumbs](https://github.com/Bastardkb/Charybdis-PCB-thumbs/releases/tag/2.01)
+:information_source: An alternative to victorlucachi's PMW3610 breakout design linked above is the [sensor board designed by Bastard Keyboards](https://docs.bastardkb.com/help/bluetooth.html#sensor).
 
-Olidacombe also has a [fork](https://github.com/olidacombe/Charybdis-PCB-thumbs), in order to move wiring to left, but I personally did not use it.
+### 3D Case Prints
 
-### Flexible PCB Thumbs (for left)
-[Link to repo](https://github.com/Bastardkb/TBK-Mini-PCB-thumb-cluster/releases/tag/2.1)
+| **Part**                                                                                                                         | **Quantity** |
+| -------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [Right Plate](https://github.com/Bastardkb/Charybdis/blob/3908164/files/3x6%20mini/plate_v1_v11.stl)                             | 1            |
+| [Left Plate](https://github.com/erenatas/charybdis-wireless-3x6/blob/master/3d-prints/plate_v3_v29_mirrorred.stl)                | 1            |
+| [Right Case](https://github.com/Bastardkb/Charybdis/blob/2dad0ca/files/3x6%20mini/CMini_v1_v11.3mf)                              | 1            |
+| [Left Case](https://github.com/erenatas/charybdis-wireless-3x6/blob/master/3d-prints/case_v3_v29_mirrorred.stl)                  | 1            |
+| [Sensor Cover](https://github.com/Bastardkb/Charybdis/blob/9130a58/files/sensor_cover_v51.stl)                                   | 1            |
+| [Adapter Top](https://github.com/Bastardkb/Charybdis/blob/c818c76/files/3x5%20nano/adapter_v2_top_v75.stl)                       | 1            |
+| [Adapter Bottom](https://github.com/Bastardkb/Charybdis/blob/d0e20cc/files/mods/btu/adapter_btu_bottom_v32.stl)                  | 1            |
+| [Ball Bearing Holder](https://github.com/Bastardkb/Charybdis/blob/322faad/files/mods/printable-btu/printable_btu_2.5mm_ball.stl) | 3            |
 
-As I mentioned above, I ordered with 0.8mm thickness and did not change anything else (other than dying it to black at no extra cost on 0.8mm)
+I ordered these parts from [JLC3DP](https://jlc3dp.com/3d-printing-quote) in SLS black 3201PA-F Nylon. After the order was reviewed I was warned that some of the parts were too thin and may bend or break during production. The risks were accepted and the parts arrived without issue.
 
-
-### Flexible PCB for the plate (3x6)
-[Link to repo](https://github.com/Bastardkb/TBK-Mini-PCB-plate/releases/tag/2.21)
-
-Again, I ordered with 0.8mm thickness and dyed it black
-
-### 3D Prints
-A good friend and a colleague of mine [pbacterio](https://github.com/pbacterio) assisted me with 3D prints. I will add the link of each part  have 3D printed for a 3x6 build. This is different from the official README, as it does not use bearings for trackball and uses ceramic bearing balls. Some of the designs require the 3D model to be mirrored, I will link my mirrored files in this repository (Please refer to [Disclaimer](#disclaimer)).
-
-- [Right case 3MF](https://github.com/Bastardkb/Charybdis/blob/2dad0ca/files/3x6%20mini/CMini_v1_v11.3mf), [STEP file](https://github.com/Bastardkb/Charybdis/blob/9afdbc9/files/3x6%20mini/CMini_v1_v11.step)
-- [Left case STL](./3d-prints/case_v3_v29_mirrorred.stl)
-- [Right Plate STL](https://github.com/Bastardkb/Charybdis/blob/3908164/files/3x6%20mini/plate_v1_v11.stl)
-- [Left Plate STL](./3d-prints/plate_v3_v29_mirrorred.stl)
-- [Adapter - top STL](https://github.com/Bastardkb/Charybdis/blob/c818c76/files/3x5%20nano/adapter_v2_top_v75.stl)
-- [Adapter BTU Bottom](https://github.com/Bastardkb/Charybdis/blob/d0e20cc/files/mods/btu/adapter_btu_bottom_v32.stl)
-- [Printable 2.5mm BTU Ball](https://github.com/Bastardkb/Charybdis/blob/322faad/files/mods/printable-btu/printable_btu_2.5mm_ball.stl), You need 3 of these
-- [Tent Left STL (Optional)](https://github.com/Bastardkb/Charybdis/blob/4924527/files/3x6%20mini/tent_v2_v57.3mf)
-- [Tent Right STL (Optional)](./3d-prints/tent_v2_v57_mirrorred.stl)
-- [Sensor Cover](https://github.com/Bastardkb/Charybdis/blob/9130a58/files/sensor_cover_v51.stl)
-
-#### Tips after build
-- I personally find tents too high could not find a good position to make use of them.
-- I would like to replace plates with metal ones to add more weight, and also less flexibility as ribbon wires add pressure.
-### Required Components
-In this section, I will go through each component I have bought, and also give example links. As of writing, I locate in Netherlands, therefore I tried to source some of the parts across European countries. 
-
-| Name                         | Count | Link                                                                                                                         |
-|------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------|
-| Trackball                    | 1     | [Perixx Europe](https://eu.perixx.com/collections/accessory/products/18010)                                                  |
-| nice!nano microcontroller    | 2     | [Splitkb.com](https://splitkb.com/collections/keyboard-parts/products/nice-nano)                                             |
-| (optional) mill max sockets  | 2     | [Splitkb.com](https://splitkb.com/collections/keyboard-parts/products/mill-max-low-profile-sockets?variant=31945995845709)   |
-| SOD123 Diodes                | 41    | [Splitkb.com](https://splitkb.com/collections/keyboard-parts/products/smd-diodes)                                            |
-| Button, 4x4x1.5              | 2     | [Aliexpress](https://www.aliexpress.com/item/4001046134819.html)                                                             |
-| PMW3610 module               | 1     | [Aliexpress](https://www.aliexpress.com/item/1005006208592770.html)                                                          |
-| Mini Toggle Switch TS-6 SPDT | 2     | [Aliexpress](https://www.aliexpress.com/item/1005003684819561.html)                                                          |
-| Batteries                    | 2     | [Aliexpress](https://nl.aliexpress.com/item/1005005348368664.html)                                                           |
-| Ceramic Bearing Balls 2.5mm  | 3     | [Aliexpress](https://www.aliexpress.com/item/1005004239319689.html)                                                          |
-| Flexstrip Jumper Cables      | 2     | [Aliexpress](https://www.aliexpress.com/item/1005003498734969.html)                                                          |
-| Key Switches                 | 41    | [Aliexpress](https://www.aliexpress.com/item/1005003761194503.html)                                                          |
-| M3 5mm Brass Melt Nuts       |       | [Aliexpress](https://www.aliexpress.com/item/1005003582355741.html)                                                          |
-| M4 5mm Brass Melt Nuts       |       | [Aliexpress](https://www.aliexpress.com/item/1005003582355741.html)                                                          |
-| M3 8mm Torx Screws           |       | [Aliexpress](https://www.aliexpress.com/item/1005006115217679.html)                                                          |
-| M4 8mm Torx Screws           |       | [Aliexpress](https://www.aliexpress.com/item/1005006115217679.html)                                                          |
-| JST plug 2-pin               | 2     | [Aliexpress](https://www.aliexpress.com/item/1005006115217679.html)                                                          |
+The files for these are in the 3D Print STL Files directory, and the source repos have been linked in the parts list above.
 
 
-#### Notes: Flexstrip Jumper Cables (Ribbon cables)
-BastardKb docs mention you require 30 wire ribbon cables, but its not specifically mentioned what type or length is required. From the link I sent above, I bought a 24 Pin 82MM Length and 12 Pin 70MM Length just to make sure.
+### 3D Key Cap Prints
 
-**After build**: 70mm length was not enough for thumb and sensor, and for 82mm one I ran into issues where cable snapped in 2 different occassions. I ended up using AWG28 cable to solder sensor! While its harder to solder as its very flexible, its much easier to handle if something goes wrong.
+| **Part** | **Quantity** |
+| -------- | ------------ |
+| r1       | 2            |
+| r2       | 2            |
+| r3       | 2            |
+| thumb    | 1            |
 
-#### Notes: Batteries
-One important part here is the battery. If you order a battery from Aliexpress to Europe, the order will be shipped with freight, meaning it will take ~2 months to arrive. Due to this reason, if you reside within EU, I would recommend to source a battery of your choice within EU. What needs to be considered before ordering any battery is to ensure that it is:
-- 3.7V
-- More than 80mAh
-- If you want to squeeze the battery between nice!nano and and the holder PCB, then you need to be careful of its size. At [42keebs.eu](https://42keebs.eu/shop/parts/lithium-polymer-battery/?attribute_size=301230%20(80%20mAh)), it states that you can fit `350926`, `301230`, `401030` underneath the nice!nano microcontroller.
-- Again, if you would like to fit a battery underneath nice!nano, you may want to buy [Mill Max Low Profile Sockets with Headers](https://splitkb.com/collections/keyboard-parts/products/mill-max-low-profile-sockets?variant=47060695646555) In order to create the gap in between.
+The key caps are DES profiled. These were designed by [pseudoku](https://github.com/pseudoku/PseudoMakeMeKeyCapProfiles), and the key set files in this repo will print sets of 10 keys for row one, two, and three, and a single set of ergo thumb keys.
 
-For this build, I used a JST plug so I can take out batteries without the need of desoldering.
+JLC3DP SLS printed these in white 1172Pro Nylon. They sent the same warning asking for the risks to be accepted, and they all turned out fine as well.
 
-**After build**: Somehow batteries I ordered from Aliexpress came much faster! Another thing is I did not get Mill Max Low Profile Sockets with Headers, but with pins (accidentally) therefore I was unable to fit the batteries beneath nice!nano.
+Note - JLC3DP charges per-part, and only allows combining a maximum of 10 small parts into a single print, which is why the sprues are part of the STL files. However, if you have different printing requirements/capabilities, the OpenSCAD code from [toniz4](https://github.com/toniz4/PseudoMakeMeKeyCapProfiles) was forked and modified to allow rendering whatever keys you like, with or without sprues. If more than one set of keys is rendered at a time, and sprues are enabled, they will be meshed to make them a single part.
 
-### Helper Tools
+To render your own STL files, clone the [fork](https://github.com/280Zo/PseudoMakeMeKeyCapProfiles) and update the keeb.scad file as desired.
 
-As I have never built any keyboard before, and technically its my first DIY electronics project, I had to source all parts I needed. So I got:
+### PMW3610 Sensor
 
-- Solder Iron: Its strongly recommended to get a good quality solder iron where you can change the temperature. From my research I have found that Hakko solder irons are overwhelmingly popular, however they are expensive. If you are not planning to build keyboards for a living, you can cut some costs by a cheaper alternative. I myself bought a [GALLUNOPTIMAL GOSprint150](https://www.amazon.nl/dp/B091J6TB43).
-- Solder: There are two types of solder that can be used, leaded and lead-free. While leaded solder melts easier and its easier to desolder, lead itself is toxic, therefore its important not to inhale it. You can put a fan in front of you and have good ventilation and possibly wear a mask. Lead-free solder is a safer choice, but it melts harder. Make sure to wash your hands after you are done!
-    - **After build**: Desoldering was painful with lead free solder
-- Solder wick: Its a type of solder remover, can be handy during incidents
-    - **After build**: Adding flux to board helped a lot when I wanted to use solder wick
-- Solder brass: If solder tin gets stuck on the tip of your iron, this is your go to.
-- Pliers: You will need them to cut flexstrip ribbon cables.
-- Torx screw drivers: You need M3 and M4 screw drivers. You already may have one at home.
-- Tweezers: You are going to need them to hold pieces together, and also deal with small parts such as SOD123 diodes. 
-- Desoldering Pump: Can be handy in case of accidents.
-- Solder flux: Optional, solder tins usually have tin inside nowadays, however it may be handy to have one.
-- Solder Station silicon: Optional, to make sure not to damage the surface you are working on.
+| **Part**                                                                                    | JLCPCB Part #                                                                | MFR. Part #       | **Quantity** |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ----------------- | ------------ |
+| [PMW3610 module with lens (LM18-LSI)](https://www.aliexpress.us/item/3256806022278018.html) | N/A                                                                          | N/A               | 1            |
+| [LDO](https://www.mouser.com/ProductDetail/595-TLV70018DDCR)                                | [C79924](https://jlcpcb.com/partdetail/TexasInstruments-TLV70018DDCR/C79924) | TLV70018DDCR      | 1            |
+| [Thick Film Resistor](https://www.mouser.com/ProductDetail/303-0603WAF2004T5E)              | [C22976](https://jlcpcb.com/partdetail/23703-0603WAF2004T5E/C22976)          | 0603WAF2004T5E    | 1            |
+| [Ceramic Capacitors](https://www.mouser.com/ProductDetail/187-CL10A105KB8NNNC)              | [C15849](https://jlcpcb.com/partdetail/16531-CL10A105KB8NNNC/C15849)         | CL10A105KB8NNNC   | 1            |
+| [Ceramic Capacitors](https://www.mouser.com/ProductDetail/603-CC603KRX7R9BB104)             | [C14663](https://jlcpcb.com/partdetail/Yageo-CC0603KRX7R9BB104/C14663)       | CC0603KRX7R9BB104 | 1            |
+| [Ceramic Capacitors](https://www.mouser.com/ProductDetail/187-CL10A475KO8NNNC)              | [C19666](https://jlcpcb.com/parts/componentSearch?searchTxt=C19666)          | CL10A475KO8NNNC   | 7            |
 
-## Step 2: Assembly
-Most of the steps are similar to building a Charybdis Nano. I will try to explain what I have done differently.
+These are all the components required for the sensor breakout PCB. It's possible to have JLCPCB assemble the PCB and components for you. Just select that option at checkout and supply the bom.csv and positions.csv from the PMW3610 Breakout zip.
 
-1. Install screw inserts: [BastardKB Docs](http://docs.bastardkb.com/bg_cnano/04screw_inserts.html)
-1. Solder diodes: [BastardKB Docs](http://docs.bastardkb.com/bg_cnano/05diodes.html)
-1. Solder PMW3610 to sensor board
-    - There is a single orientation to solder it, I don't think you will have any issues in this step. I would recommend to take out the sensor cap while doing any soldering to prevent touching it via solder iron. There is also kapon tape on the sensor, before starting to use it I would recommend to take them out.
-1. Solder power switch to nice!nano holder
-1. Solder button
-1. Solder JST female plug
-    - I soldered it in the same orientation with button where I can also reach to it from the side. Assembling nice!nano holder to case becomes a bit tight but it barely fits without pressure.
-1. Solder nice!nano
-    - [This video from Joe Scotto](https://youtu.be/l5kAx08Iom4) helped me a lot in this part. As it mentions, temperature on nice!nano is important, do not go above 300 degrees Celsius.
-    - **Important** If you run into issues with wiring and in need to do desoldering, make sure to take out the nice!nano first!
-1. Try connecting battery and see if nice!nano works
-1. Install ribbon cables (including sensor board): [BastardKB Docs](http://docs.bastardkb.com/bg_cnano/07ribbon_cables.html)
-    - Overall I had a negative experience with ribbon cables in general. It got snapped twice, and its very painful to desolder. For soldering sensor I used AWG28 cables after needing to desolder twice. In the process I believe I killed my nice!nano after applying too much heat on nice!nano holder PCB.
-    - Make sure to cut off extending parts of the cables after soldering to keep the PCBs flat it will make installing switches much easier.
-1. Power it on, grab a tweezer and check if each switch and sensor is working, if all works perfect!
-    - You can use your finger and see if sensor works correctly. If not you may have issues with wiring (I did this step 3 times unfortunately)
-1. Install and solder switches
-    - I watched BastardKB build videos on Youtube for this part!
-1. Install sensor board
-    - During sensor assembly, I initially did not understand BTU prints were supposed to be installed angled, and needs to go all in. This is important otherwise ball will stay too high and sensor will not be able to read it
+I chose to solder the parts on myself so I ordered the parts above. A diagram of where to solder each component on is in the assembly instructions.
 
-## Step 3: Software
-As of writing, I have zero knowledge of ZMK. ~~I have forked [EIGA's config repo](https://github.com/erenatas/zmk-config)~~, created a Github Actions which built the images required for the keyboard. Connecting nice!nano for the first time is its reset mode, all you need to do is to drag and drop built image, which will flash itself. No need to change names or anything. Right hand is the main controller which you can connect to it via bluetooth and left hand automatically is connected to right hand.
+:information_source: [C79924](https://jlcpcb.com/partdetail/TexasInstruments-TLV70018DDCR/C79924)/TLV70018DDCR is a substitue for [C146366](https://jlcpcb.com/jp/partdetail/TOSHIBA-TCR2EF19_LMCT/C146366)/TCR2EF19,LM(CT) which is what the designer of the PCB originally used. Either component will work, but if you plan to have JLCPCB assemble the sensor board the C146366 is what's included in the parts list and is often out of stock. However, the replacement is normally available.
 
-**07/04/2024**: You can find my zmk config here: [https://github.com/erenatas/zmk-config-charybdis-mini-wireless](https://github.com/erenatas/zmk-config-charybdis-mini-wireless), Added scroll support via forking [@grassfedreeve](https://github.com/grassfedreeve)'s config and adapted it to 3x6 mini. 
+### General Components
 
-# Thanks
-I would like to thank and give my gratitude to following people that helped to make this project into a reality. I believe you have ignited a DIY flame within me!
-- [EIGA](https://www.youtube.com/watch?v=Mks7QDxFreY) with his Youtube.
+| **Part**                                                                                                                                                             | **Quantity** |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [Trackball](https://www.amazon.com/Perixx-18021-PERIPRO-303GR-Trackball-Compatible/dp/B071NX7Y2J)                                                                    | 1            |
+| [SuperMini NRF52840 Microcontrollers](https://www.aliexpress.us/item/3256805848952479.html?gatewayAdapt=glo2usa)                                                     | 2            |
+| [Mill Max Low Profile Sockets 315-43-112-41-003000 (optional)](https://www.mouser.com/ProductDetail/Mill-Max/315-43-112-41-003000?qs=s8Nb1z4Wn%2FRfWrVqQ0TOuQ%3D%3D) | 4            |
+| [Mill Max Pins 3320-0-00-15-00-00-03-0 (optional)](https://www.mouser.com/ProductDetail/Mill-Max/3320-0-00-15-00-00-03-0?qs=s8Nb1z4Wn%2FQ16WBIwCPrTw%3D%3D)          | 48           |
+| [1N4148W Signal Diodes](https://www.amazon.com/gp/product/B079KJX5J9/ref=ox_sc_act_title_1?smid=A14FP9XIRL6C1F&psc=1)                                                | 41           |
+| [Button (4x4x1.5)](https://www.aliexpress.us/item/2255800859820067.html?gatewayAdapt=glo2usa4itemAdapt)                                                              | 2            |
+| [Mini Toggle Switch SPDT 3mm](https://www.amazon.com/Position-Breadboard-Electronic-Miniature-SlideSwitch/dp/B09R42XQTB)                                             | 2            |
+| [3.7V 130mAh 401030 Li-Po Batteries](https://www.aliexpress.us/item/3256805609268740.html?)                                                                          | 2            |
+| [2.5mm Silicon Nitride Ceramic Ball Bearings](https://www.aliexpress.us/item/2255799954006155.html)                                                                  | 3            |
+| [80MM Flexstrip Jumper Cables](https://www.aliexpress.us/item/3256803312420217.html)                                                                                 | 2            |
+| [Gateron oil king 2.0 switch three-layer pin self-lubricating linear handle 55gf Key Switches](https://www.aliexpress.us/item/3256806388542736.html)                 | 41           |
+| [M3 x D5 x L5 Brass Melt Nuts](https://www.aliexpress.us/item/3256805371193370.html)                                                                                 | 5            |
+| [M4 x D6 x L5 Brass Melt Nuts](https://www.aliexpress.us/item/2255800046610840.html)                                                                                 | 12           |
+| [M3 8mm Torx Screws](https://www.aliexpress.us/item/2251832820627860.html)                                                                                           | 5            |
+| [M4 8mm Torx Screws](https://www.aliexpress.com/item/2251832820627860.html)                                                                                          | 12           |
+| [JST plug 2-pin](https://www.aliexpress.com/item/2251832721663484.html)                                                                                              | 2            |
+| [Adhesive bumper pads](https://www.amazon.com/Shintop-Furniture-Bumpers-Protection-Hemispherical/dp/B01DU0O00W)                                                      | 10           |
+
+The parts above were ordered from Aliexpress and Amazon. If the links go to a listing that's no longer active, just search for something with the same description and specs.
+
+The standard for microcontrollers on wireless keyboard builds is the nice!nano 2.0. However, there are some cheaper alternatives documented on [this MCU wiki](https://github.com/joric/nrfmicro/wiki/Alternatives). This build uses the SuperMini NRF52840.
+
+You can order whatever battery you like, it just needs to be 3.7v and more than 80mAh. If you want it to fit under the micro controller, make sure the dimensions are correct. You'll also need to use the optional header sockets. You can order socket pins which are more sturdy than just using [diode legs](https://docs.splitkb.com/hc/en-us/articles/360011263059-How-do-I-socket-a-microcontroller#h_f7045b1e-5c02-4c73-8569-252b7fce7ad6).
+
+## Assembly
+
+Bastard Keyboard's build guides are excellent and comprehensive. Their material will be linked to as much as possible in the steps below.
+
+**Tool List**
+- soldering iron
+- soldering iron fine tips
+- lead free solder
+- Solder wick and Desoldering Pump
+- flux
+- filter fan
+- ESD mat and strap
+- ESD safe tweezers
+- Kapton tape
+- Double sided tape
+- torx screw drivers
+- scissors
+- Flush cutting pliers
+- (optional) self closing tweezers or kelly forceps
+- (optional) magnifying glass or microscope
+
+**Melt nuts**
+
+Follow BastardKB's [build guide to install screw inserts on the cases](https://docs.bastardkb.com/bg_charybdis/04screw_inserts.html).
+
+Then follow thier [build guide to install screw inserts on the sensor assembly](https://docs.bastardkb.com/bg_charybdis/11sensor_assembly.html#preparing-the-3d-holder-assembly).
+
+**Diodes**
+
+BastardKB's documentation on how to [solder diodes on both plates and thumb clusters](https://docs.bastardkb.com/bg_charybdis/05diodes.html).
+
+**Sensor Breakout Components (optional)**
+
+If you've chosen to solder the components on the PMW3610 breakout PCB, follow the diagram below to get them in the correct spots.
+
+A stand with a magnifying glass, or a digital microscope are very helpful in ensuring the soldering is done correctly on these small components.
+
+![pmw3610_pcb](./images/PMW3610_component_diagram.png "Component Placement")
+
+**PMW3610**
+
+The lens of the sensor should be removed or covered with Kapton tape while soldering. Orient the sensor so that the back of it is on the same side as the other components, then solder it in place.
+
+When working with the sensor and the MCU it's best to keep soldering iron temperatures below 300°C.
+
+**Nano Holder Components**
+
+Solder on the switches, and buttons to the left and right nano holder PCBs. Then solder on the JST female connectors. I positioned this so the red wire on the male side would be the battery's postive connection. I also had to bed the legs out a little bit in order to get this to fit flush with the nano holder board.
+
+**MCU**
+
+Solder the MCUs to the nano holders using the standard pin headers or the socketed pin headers, depending on what you chose to order to mount the MCU.
+
+The MCUs should be face down (components pointed towards the PCB), and the top pins on either side of the USB connection will not have a connection to the PCB.
+
+:warning: As mentioned above, do not set your soldering iron any higher than 300°C.
+
+After the components have all been soldered, it should look something like the picture below.
+
+![alt text](images/nano_holder.jpg)
+
+Being careful to not short any connections, connect the JST battery connections, and confirm the MCU powers on.
+
+**Cables**
+
+If you want the cables a different color, make sure to paint them before this step. Use some tape to cover the tips so they can still be soldered.
+
+Use [BastardKB's documentation](https://docs.bastardkb.com/bg_charybdis/07ribbon_cables.html#cutting-the-cables) on how to cut and solder the ribbon cables.
+
+Then follow the [BastardKB docs](https://docs.bastardkb.com/bg_charybdis/09cables_to_splinky.html) on how to connect all of the PCBs together.
+
+Make sure to use the flush cut pliers to remove any protruding pins and solder from the back side of the PCBs so that they can sit flush with the cases when the switches are being mounted.
+
+For my build, I had some extra sockted pin headers laying around, so I chose to socket the sensor board to the MCU holder with some 28 gauge wire from an Ethernet cable. However, the ribbon cable would have worked just fine as well.
+
+**Battery**
+
+Most builds mount the battery under the MCU, however I opted to mount it on the top lip of each half with some double sided tape.
+
+The fit is perfect and I haven't had any issues with it in this location.
+
+![alt text](images/battery.jpg)
+
+This allowed me to keep the battery away from components that could be damaged with excessive heat or expansion, and makes it easy to examine. The slack in the cable makes it simple to change or remove the battery at any time.
+
+**Testing**
+
+Now that everything is connected follow [BastardKB's documentation](https://docs.bastardkb.com/bg_charybdis/10install_the_switches.html#testing-the-pcbs) to test the switch pads and connections.
+
+**Switches**
+
+Once all the switch pads have been confirmed to work, install the switches by following [BastardKBs documentation](https://docs.bastardkb.com/bg_charybdis/10install_the_switches.html#installing-the-switches).
+
+**Sensor PCB**
+
+Put the sensor cover into the right case, install the BTU ball holders into the BTU bottom adatper, then screw the BTU bottom adatper into the sensor cover.
+
+Make sure to push the BTU ball holders all the way into the BTU bottom adapter. They go in deeper than being flush with the side walls. It should something like this.
+
+![alt text](images/btu_bottom.jpg)
+
+Finally, install the sensor and sensor cover by screwing them into the BTU bottom adatper.
+
+**Pads**
+
+Install the anti-slip pads on to the bottom of each plate.
+
+**Final Test**
+
+Install the key caps, then connect each half to the computer the same way you did for the previous test. Confirm that each key still works.
+
+# WIP
+
+I'll be adding content for some additional steps soon:
+- How to dye the keys
+- How to configure the firmware
+- How to flash the firmware
+- Key layouts
+
+# Credits
+This was my first keyboard build, and I couldn't have done it without the hard work from many others:
 - [BastardKB](http://bastardkb.com/)
+- [erenatas](https://github.com/erenatas/charybdis-wireless-3x6/blob/master/README.md)
+- [pseudoku](https://github.com/pseudoku/PseudoMakeMeKeyCapProfiles)
+- [toniz4](https://github.com/toniz4/PseudoMakeMeKeyCapProfiles)
 - [VOID](https://github.com/victorlucachi)
 - [olidacombe](https://github.com/olidacombe)
-- My dear friend and colleague [pbacterio](https://github.com/pbacterio)
-- Sigvah who became my build buddy
-- My wife for her support!
-
-And finally thank you for all the supporters in BastardKB Discord channel. You have an amazing community!
+- [EIGA](https://www.youtube.com/watch?v=Mks7QDxFreY)
