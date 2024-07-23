@@ -58,6 +58,7 @@ I ordered these parts from [JLC3DP](https://jlc3dp.com/3d-printing-quote) in SLS
 
 The files for these are in the 3D Print STL Files directory, and the source repos have been linked in the parts list above.
 
+After using the keyboard I reckon if I do this again I'll print the plates in SLM(metal) to add a bit of weight for a better typing feel, and to keep the keyboard flat against the desk. The nylon cases and plates can bend slightly, which makes typing on the corner keys push it off balance some of the time.
 
 ### 3D Key Cap Prints
 
@@ -74,11 +75,9 @@ JLC3DP SLS printed these in white 1172Pro Nylon. My intent with the white is to 
 
 I was sent the same warning about parts being too thin and possible breaking/misprint during production, but again the risks were accepted, and they arrived without any issues. The combination of the texture of the SLS prints and the shape of the DES profile is very comfortable to type on.
 
-Note - JLC3DP charges per-part, and only allows combining a maximum of 10 small parts into a single print, which is why the sprues are part of the STL files. This means that each order is 10 keys for the standard rows and six keys for the thumbs.
+Note - JLC3DP charges per-part, and only allows combining a maximum of 10 small parts into a single print, which is why the sprues are included in the STL files. This means that each order is 10 keys for rows 1-3 and six keys for the thumbs.
 
-If you have different printing requirements/capabilities, the OpenSCAD code from [toniz4](https://github.com/toniz4/PseudoMakeMeKeyCapProfiles) was forked and modified to allow rendering whatever keys you like, with or without sprues, and with or without home dots. If more than one set of rows is rendered at a time, and sprues are enabled, they will be meshed to make them a single part.
-
-To render your own STL files, clone the [fork](https://github.com/280Zo/PseudoMakeMeKeyCapProfiles) and update the keeb.scad file as desired.
+If you have different printing requirements/capabilities, the OpenSCAD code in this [fork](https://github.com/280Zo/PseudoMakeMeKeyCapProfiles) can be changed by updating the keeb.scad file to render whatever keys you like, with or without sprues, and with or without home dots. If more than one set of rows is rendered at a time, and sprues are enabled, the sprues will be meshed in a grid.
 
 ### PMW3610 Sensor
 
@@ -248,14 +247,41 @@ Install the anti-slip pads on to the bottom of each plate.
 
 Install the key caps, then connect each half to the computer the same way you did for the previous test. Confirm that each key still works.
 
+# Dye the Key Caps
+
+Rit DyeMore synthetic fiber dyes are an effective way to color the white nylon key caps to any color you'd like. You'll need a few things before you get started.
+
+**Tools & Supplies**
+- Rit DyeMore dye(s)
+  - Use their [color formula picker](https://www.ritdye.com/color-formulas/) to figure out which dye to order
+- A container to hold the water and dye while it's at temperature
+- Something to hold the parts in the dye (the nylon keys will float without this)
+- Tongs to get the parts out of the hot dye solution
+- Stove or cooktop
+- Thermometer
+
+**Process**
+
+1. Mix the dye and water according to the color formula and dye instructions. Adjust the ratios to match the volume of your container.
+2. Heat the solution up to ~60°C/140°F. Be careful not to go above 71°C/160°F or the nylon parts might start to deform.
+3. Put the parts into the solution, and put the mesh basket top down over the parts so the mesh base is at the top preventing parts from floating.
+4. Submerge for five minutes (less if you'd like a lighter shade of the color)
+5. While the parts of being dyed, fill a separate container with cold water.
+6. When the parts are ready, remove them from the hot solution to the container of cold water.
+7. After the parts have cooled, dry them off
+
+**Notes**
+
+- I recommend making small batches of the dye solution and testing the color on a couple of keys to make sure you like it.
+- To keep the dye batches small, and to have an easy way to keep the keys in the solution, I used a small [tempura deep frying pot](https://www.amazon.com/dp/B01EHXPT2Y?psc=1&ref=ppx_yo2ov_dt_b_product_details). I took the handle off the mesh basket and turned it upside down so it would hold the parts in the solution.
+- I've dyed key caps in crimson red, gray (Crowned Prince), and blue (Flight Plan). I'll attach some picture soon.
+
 # WIP
 
 I'll be adding content for some additional steps soon:
-- How to dye the keys
 - How to configure the firmware
 - How to flash the firmware
 - Key layouts
-- Options for adding weight
 
 # Credits
 This was my first keyboard build, and I couldn't have done it without the hard work from many others:
