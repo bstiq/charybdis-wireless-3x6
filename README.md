@@ -20,7 +20,7 @@ This guide serves as a resource to assist you in building your Charybdis. I assu
 
 ## Bill of Materials
 
-These are all the components that need to be ordered to build the keyboard. The quantity column denotes how many of each component are required for the build, not how many of each item to buy at the provided link. For example, each PCB ordered from JLCPCB has a minimum order of five, when only one or two are required. So even though the quantity says two, you'll only have to order one because it comes with five PCBs. For each link, adjust your order accordingly, so it matches the minimum required component quantity.
+These are all the components that need to be ordered to build the keyboard. The quantity column denotes how many of each component are required for the build. Adjust the order quantity as needed.
 
 ### PCBs
 
@@ -35,24 +35,24 @@ These are all the components that need to be ordered to build the keyboard. The 
 
 I ordered the PCBs from [JLCPCB](https://jlcpcb.com/).
 
-:warning: &emsp; **A thickness of 0.8 or less** must be set for the left thumb, right thumb, and plate PCBs.
+:warning:&emsp;**A thickness of 0.8 or less** must be set for the left thumb, right thumb, and plate PCBs.
 
 The gerber files have all been pulled from other repositories and are stored in the PCB Gerber Files directory. However, each source repository is linked in the part list above for reference.
 
-:information_source: &emsp; An alternative to victorlucachi's PMW3610 breakout design linked above is the [sensor board designed by Bastard Keyboards](https://docs.bastardkb.com/help/bluetooth.html#sensor). I have not used this design yet, but I plan to try it out in the future.
+:information_source:&emsp;An alternative to victorlucachi's PMW3610 breakout design linked above is the [sensor board designed by Bastard Keyboards](https://docs.bastardkb.com/help/bluetooth.html#sensor). I have not used this design yet, but I plan to try it out in the future.
 
 ### 3D Case Prints
 
-| **Part**                                                                                                                         | **Quantity** |
-| -------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| [Right Plate](https://github.com/Bastardkb/Charybdis/blob/3908164/files/3x6%20mini/plate_v1_v11.stl)                             | 1            |
-| [Left Plate](https://github.com/erenatas/charybdis-wireless-3x6/blob/master/3d-prints/plate_v3_v29_mirrorred.stl)                | 1            |
-| [Right Case](https://github.com/Bastardkb/Charybdis/blob/2dad0ca/files/3x6%20mini/CMini_v1_v11.3mf)                              | 1            |
-| [Left Case](https://github.com/erenatas/charybdis-wireless-3x6/blob/master/3d-prints/case_v3_v29_mirrorred.stl)                  | 1            |
-| [Sensor Cover](https://github.com/Bastardkb/Charybdis/blob/9130a58/files/sensor_cover_v51.stl)                                   | 1            |
-| [Adapter Top](https://github.com/Bastardkb/Charybdis/blob/c818c76/files/3x5%20nano/adapter_v2_top_v75.stl)                       | 1            |
-| [Adapter Bottom](https://github.com/Bastardkb/Charybdis/blob/d0e20cc/files/mods/btu/adapter_btu_bottom_v32.stl)                  | 1            |
-| [Ball Bearing Holder](https://github.com/Bastardkb/Charybdis/blob/322faad/files/mods/printable-btu/printable_btu_2.5mm_ball.stl) | 3            |
+| **Part**                                                                                                                              | **Quantity** |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [Right Plate](https://github.com/Bastardkb/Charybdis/blob/3908164/files/3x6%20mini/plate_v1_v11.stl)                                  | 1            |
+| [Left Plate](https://github.com/erenatas/charybdis-wireless-3x6/blob/master/3d-prints/plate_v3_v29_mirrorred.stl)                     | 1            |
+| [Right Case](https://github.com/Bastardkb/Charybdis/blob/2dad0ca/files/3x6%20mini/CMini_v1_v11.3mf)                                   | 1            |
+| [Left Case](https://github.com/erenatas/charybdis-wireless-3x6/blob/master/3d-prints/case_v3_v29_mirrorred.stl)                       | 1            |
+| [Sensor Cover](https://github.com/Bastardkb/Charybdis/blob/9130a58/files/sensor_cover_v51.stl)                                        | 1            |
+| [Adapter Top](https://github.com/Bastardkb/Charybdis/blob/c818c76/files/3x5%20nano/adapter_v2_top_v75.stl)                            | 1            |
+| [Adapter BTU Bottom](https://github.com/Bastardkb/Charybdis/blob/d0e20cc/files/mods/btu/adapter_btu_bottom_v32.stl)                   | 1            |
+| [Ball Transfer Unit (BTU)](https://github.com/Bastardkb/Charybdis/blob/322faad/files/mods/printable-btu/printable_btu_2.5mm_ball.stl) | 3            |
 
 I ordered these parts from [JLC3DP](https://jlc3dp.com/3d-printing-quote) in SLS black 3201PA-F Nylon. After the order was reviewed I was warned that some of the parts were too thin and may bend or break during production. The risks were accepted and the parts arrived without issue.
 
@@ -77,7 +77,7 @@ I was sent the same warning about parts being too thin and possible breaking/mis
 
 Note - JLC3DP charges per-part, and only allows combining a maximum of 10 small parts into a single print, which is why the sprues are included in the STL files. This means that each order is 10 keys for rows 1-3 and six keys for the thumbs.
 
-If you have different printing requirements/capabilities, the OpenSCAD code in this [fork](https://github.com/280Zo/PseudoMakeMeKeyCapProfiles) can be changed by updating the keeb.scad file to render whatever keys you like, with or without sprues, and with or without home dots. If more than one set of rows is rendered at a time, and sprues are enabled, the sprues will be meshed in a grid.
+If you have different printing requirements/capabilities, the OpenSCAD code in [this fork](https://github.com/280Zo/PseudoMakeMeKeyCapProfiles) can be changed by updating the keeb.scad file to render whatever keys you like, with or without sprues, and with or without home dots. If more than one set of rows is rendered at a time, and sprues are enabled, the sprues will be meshed in a grid.
 
 ### PMW3610 Sensor
 
@@ -94,7 +94,7 @@ These are all the components required for the sensor breakout PCB. It's possible
 
 I chose to solder the parts on myself so I ordered the parts above. A diagram of where to solder each component on is in the assembly instructions.
 
-:information_source: &emsp; Note that part number [C79924](https://jlcpcb.com/partdetail/TexasInstruments-TLV70018DDCR/C79924)/TLV70018DDCR is a substitute for [C146366](https://jlcpcb.com/jp/partdetail/TOSHIBA-TCR2EF19_LMCT/C146366)/TCR2EF19,LM(CT) which is what the designer of the PCB originally used. Either component will work, but if you plan to have JLCPCB assemble the sensor board the C146366 is what's included in the parts list and it is often out of stock. However, the replacement is normally available which is why it's used above.
+:information_source:&emsp;Note that part number [C79924](https://jlcpcb.com/partdetail/TexasInstruments-TLV70018DDCR/C79924)/TLV70018DDCR is a substitute for [C146366](https://jlcpcb.com/jp/partdetail/TOSHIBA-TCR2EF19_LMCT/C146366)/TCR2EF19,LM(CT) which is what the designer of the PCB originally used. Either component will work, but if you plan to have JLCPCB assemble the sensor board the C146366 is what's included in the parts list and it is often out of stock. However, the replacement is normally available which is why it's used above.
 
 ### General Components
 
@@ -121,15 +121,17 @@ I chose to solder the parts on myself so I ordered the parts above. A diagram of
 
 The parts above were mostly ordered from Aliexpress and Amazon. If the links go to a listing that's no longer active, just search for something with the same description and specs.
 
-The standard for microcontrollers on wireless keyboard builds is the nice!nano 2.0. However, there are some cheaper alternatives documented on [this MCU wiki](https://github.com/joric/nrfmicro/wiki/Alternatives). This build uses the SuperMini NRF52840.
+The standard for microcontrollers on the Charybdis wireless keyboard builds is the nice!nano 2.0. However, there are some cheaper alternatives documented on [this MCU wiki](https://github.com/joric/nrfmicro/wiki/Alternatives). This build uses the SuperMini NRF52840.
 
 You can order whatever battery you like, it just needs to be 3.7v and more than 80mAh. If you want it to fit under the micro controller, make sure the dimensions are correct. You'll also need to use the optional header sockets. You can get away with using [diode legs](https://docs.splitkb.com/hc/en-us/articles/360011263059-How-do-I-socket-a-microcontroller#h_f7045b1e-5c02-4c73-8569-252b7fce7ad6) instead of socket pins, but they will not be as sturdy. Stick with the pins if you plan to disconnect the MCU often.
 
 The cable length requirements for the flex strip cables varies between components
 
-- Nice!Nano Holder: &nbsp; 75mm
-- Thumb Plates: &emsp; &emsp; 80mm
-- PMW3610 Sensor: &nbsp; 100mm
+|     Component    	| Length 	|
+|:----------------:	|:------:	|
+| Nice!Nano Holder 	|   75mm 	|
+| Thumb Plates     	|   80mm 	|
+| PMW3610 Sensor   	|  100mm 	|
 
 The cables can be a bit longer or shorter, but sticking close to these lengths will make installation much easier. The parts list above uses 89mm for both the thumb plates and Nice!Nano holders, and 100mm for the sensor. You can order higher pin counts and cut the strips down or try to find exact pin count and length for each cable.
 
@@ -147,7 +149,7 @@ The cables can be a bit longer or shorter, but sticking close to these lengths w
 - (optional) ESD mat and strap
 - (optional) filter fan
 - (optional) flux
-- (optional) shrink wrap for battery connection
+- (optional) heat shrink tubing for battery connection
 - (optional) self closing tweezers or kelly forceps
 - (optional) magnifying glass or microscope
 
@@ -181,7 +183,7 @@ When working with the sensor and the MCU it's best to keep soldering iron temper
 
 **Nice!Nano Holder Components**
 
-Solder on the switches, and buttons to the left and right nano holder PCBs. Then solder on the JST female connectors. I positioned this so the red wire on the male side would be the battery's positive connection. I also had to bend the legs out a little bit in order to get each one to fit flush with the nano holder board.
+Solder on the power switches, and reset buttons to the left and right nano holder PCBs. Then solder on the JST female connectors. I positioned this so the red wire on the male side would be the battery's positive connection. I also had to bend the legs out a little bit in order to get each one to fit flush with the nano holder board.
 
 **MCU**
 
@@ -189,7 +191,7 @@ Solder the MCUs to the nano holders using the standard pin headers or the socket
 
 The MCUs should be face down (components facing towards the nano holder PCB), and the top through holes on either side of the USB connector will not have a spot on the nice!nano PCB.
 
-:warning: &emsp; As mentioned above, do not set your soldering iron any higher than 300°C.
+:warning:&emsp;As mentioned above, do not set your soldering iron any higher than 300°C.
 
 After the components have all been soldered, it should look something like the picture below.
 
@@ -201,15 +203,15 @@ If all goes well, unplug the battery and continue the assembly.
 
 **Cables**
 
-If you want the cables a different color, make sure to paint them before this step. Use some tape to cover the tips so they can still be soldered.
+If you want the cables a different color, make sure to paint them before this step. Use some tape to cover the pins so they can still be soldered.
 
 Use [BastardKB's documentation](https://docs.bastardkb.com/bg_charybdis/07ribbon_cables.html#cutting-the-cables) on how to cut and solder the ribbon cables.
 
 Then follow the [BastardKB docs](https://docs.bastardkb.com/bg_charybdis/09cables_to_splinky.html) on how to connect all of the PCBs together.
 
-Make sure to use the flush cut pliers to remove any protruding pins and solder from the back side of the PCBs so that they can sit flush with the cases when the switches are being soldered in.
+Make sure to use the flush cut pliers to remove any protruding pins and solder from the back side of the PCBs so that they can sit flat against the cases when the switches are being soldered in.
 
-For my build, I had some extra socketed pin headers laying around, so I chose to socket the sensor board to the nano holder with some 28 gauge wire I pulled out of an Ethernet cable. However, the 100mm ribbon cable from the BOM will probably look better, and work just fine as well.
+For my build, I had some extra socketed pin headers laying around, so I chose to socket the sensor board to the nano holder with some 28 gauge wire I pulled out of an Ethernet cable. However, the 100mm ribbon cable from the BOM will probably look better, and be easier to install.
 
 **Battery**
 
@@ -231,9 +233,9 @@ Once all the switch pads have been confirmed to work, solder in the switches by 
 
 **Sensor PCB**
 
-Put the sensor cover into the right case, install the BTU ball holders into the BTU bottom adapter, then screw the BTU bottom adapter into the sensor cover.
+Put the sensor cover into the right case, install the BTUs into the Adapter BTU Bottom, then screw the Adapter BTU Bottom into the sensor cover.
 
-Make sure to push the BTU ball holders all the way into the BTU bottom adapter. It should something like this.
+Make sure to push the BTUs all the way into the Adapter BTU Bottom. It should something like this.
 
 ![alt text](images/btu_bottom.jpg)
 
@@ -247,7 +249,7 @@ Install the anti-slip pads on to the bottom of each plate.
 
 Install the key caps, then connect each half to the computer the same way you did for the previous test. Confirm that each key still works.
 
-# Dye the Key Caps
+# Dyeing Key Caps
 
 Rit DyeMore synthetic fiber dyes are an effective way to color the white nylon key caps to any color you'd like. You'll need a few things before you get started.
 
@@ -264,10 +266,10 @@ Rit DyeMore synthetic fiber dyes are an effective way to color the white nylon k
 
 1. Mix the dye and water according to the color formula and dye instructions. Adjust the ratios to match the volume of your container.
 2. Heat the solution up to ~60°C/140°F. Be careful not to go above 71°C/160°F or the nylon parts might start to deform.
-3. Put the parts into the solution, and put the mesh basket top down over the parts so the mesh base is at the top preventing parts from floating.
+3. Put the parts into the solution, and put the mesh basket top down over the parts so the mesh base is at the top, preventing parts from floating.
 4. Submerge for five minutes (less if you'd like a lighter shade of the color)
-5. While the parts of being dyed, fill a separate container with cold water.
-6. When the parts are ready, remove them from the hot solution to the container of cold water.
+5. While the parts are being dyed, fill a separate container with cold water.
+6. When the parts are ready, remove them from the hot solution and put them in the cold water.
 7. After the parts have cooled, dry them off
 
 **Notes**
@@ -276,12 +278,90 @@ Rit DyeMore synthetic fiber dyes are an effective way to color the white nylon k
 - To keep the dye batches small, and to have an easy way to keep the keys in the solution, I used a small [tempura deep frying pot](https://www.amazon.com/dp/B01EHXPT2Y?psc=1&ref=ppx_yo2ov_dt_b_product_details). I took the handle off the mesh basket and turned it upside down so it would hold the parts in the solution.
 - I've dyed key caps in crimson red, gray (Crowned Prince), and blue (Flight Plan). I'll attach some picture soon.
 
+# ZMK Firmware
+
+The firmware can be downloaded from the [charybdis-wireless-mini-zmk-firmware](https://github.com/280Zo/charybdis-wireless-mini-zmk-firmware) repo by opening the [Actions tab](https://github.com/280Zo/charybdis-wireless-mini-zmk-firmware/actions), clicking on the latest successful run, then downloading the firmware file under Artifacts.
+
+The **main** branch builds firmware for the colemak dh key layout. The **layouts/qwerty** branch builds firmware for the qwerty layout. Make sure you pick the correct branch for your needs.
+
+![alt text](./images/branch_names.png)
+
+Customizing the firmware is pretty straight forward. Common changes might include swapping the central and peripheral halves, changing the keyboard name, or modifying the key bindings. See the firmware repo for details on how to make changes.
+
+Note that the official ZMK firmware doesn't support the PMW3610 or mouse movement keys, both of which are used in the firmware above. To get a working firmware I leveraged the work of [inorichi](https://github.com/inorichi) to get the PMW3610 driver, and [petejohanson](https://github.com/petejohanson) for the driver to allow pointer movement and scrolling with keys.
+
+Official ZMK support for mouse keys [is being worked on](https://github.com/zmkfirmware/zmk/pull/778), and when it's merged I'll switch back to the official ZMK firmware for the builds.
+
+### Key Layouts
+
+Currently there are eight layers in the firmware. I've included layout images of the six most useful layers below with a few details about each. However, all layers can be viewed/modified in the [charybdis.keymap](https://github.com/280Zo/charybdis-wireless-mini-zmk-firmware/blob/main/config/charybdis.keymap) file ([qwerty version](https://github.com/280Zo/charybdis-wireless-mini-zmk-firmware/blob/layouts/qwerty/config/charybdis.keymap)).
+
+**0 - Base (Colemak DH)**
+
+![alt text](./images/0-base.png)
+
+Keys with two separate lines like the A key in the image above are tap/hold. The function on the top is sent when the key is tapped, the function on the bottom is sent when the key is held.
+
+L-1 through L-6 are layer keys and activate the layer when pressed. L-5 and L-6 stay in that layer until that same key is pressed again. Layer seven is activated by pressing ESC and Return at the same time.
+
+**1 - Num**
+
+![alt text](./images/1-num.png)
+
+All the number keys are tap/hold. If they are tapped, the number is sent, if they are held the corresponding F key is sent.
+
+**2 - Nav**
+
+![alt text](./images/2-nav.png)
+
+The navigation is heavily influenced by [VIM](https://www.lazyvim.org/). The arrow keys will work as indicated, but they are laid out in a more comfortable position than the traditional triangle. That being said there is a game layer that uses WASD for more traditional feel.
+
+The splits and pane changes are also specific to VIM sessions, but the home, end, and page up/down work like normal.
+
+**3 - Sym**
+
+![alt text](./images/3-sym.png)
+
+The symbols have been moved to positions that are comfortable for me to type when I am coding. You may find different positions better suited to your needs.
+
+**4 - Mouse**
+
+![alt text](./images/4-mouse.png)
+
+This layer lets you control the mouse and scroll wheel. It also includes common actions when using a mouse like copy/paste.
+
+**7 - Extras**
+
+![alt text](./images/7-extras.png)
+
+These are all the keys that don't need their own layer, and aren't accessed very frequently. The bluetooth connection keys are on this layer to make it easy to switch between computers. The USB/BT key is used to switch between the USB cable and the Bluetooth connection.
+
+**Combos**
+
+![alt text](./images/combos.png)
+
+Combos are keys that can be pressed at the same time to execute an action. There are only three combos at the moment, but there will be more coming as I refine the layout.
+
+### Flashing the Firmware
+
+To flash each side of the keyboard, follow the steps below:
+
+- Unzip th firmware.zip
+- Plug the right half info the computer through USB
+- Double press the reset button you soldered onto the nano holder PCB
+- The keyboard will mount as a removable storage device
+- Copy the charybdis_right-nice_nano_v2-zmk.uf2 file into the NICENANO storage device.
+- It will take a few seconds, then it will unmount and restart itself.
+- Do the same with the left half, and copy the charybdis_left-nice_nano_v2-zmk.uf2 file.
+- Both halves of the keyboard should now be flashed with the firmware.
+
 # WIP
 
-I'll be adding content for some additional steps soon:
-- How to configure the firmware
-- How to flash the firmware
-- Key layouts
+That's it for now. A few more things to come later on
+
+- I'll have more updates to improve the key mapping like adjusting the hold tap [falvors](https://zmk.dev/docs/behaviors/hold-tap#flavors), testing out some more bindings for the extras layer, and adjusting some of the trackball and mouse key settings for smoother operation.
+- I'm looking into cutting the plates from aluminum plate. The aluminum and tools are cheap, and I want to see how it compares against SLM printing.
+- I still need to attach some photos of the dyed key caps
 
 # Credits
 This was my first keyboard build, and I couldn't have done it without the hard work from many others:
@@ -289,6 +369,8 @@ This was my first keyboard build, and I couldn't have done it without the hard w
 - [erenatas](https://github.com/erenatas/charybdis-wireless-3x6/blob/master/README.md)
 - [pseudoku](https://github.com/pseudoku/PseudoMakeMeKeyCapProfiles)
 - [toniz4](https://github.com/toniz4/PseudoMakeMeKeyCapProfiles)
+- [inorichi](https://github.com/inorichi)
+- [petejohanson](https://github.com/petejohanson)
 - [VOID](https://github.com/victorlucachi)
 - [olidacombe](https://github.com/olidacombe)
 - [EIGA](https://www.youtube.com/watch?v=Mks7QDxFreY)
