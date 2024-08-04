@@ -12,11 +12,15 @@
     - [Notes](#notes)
   - [Helper Tools](#helper-tools)
 - [Assembly](#assembly)
-- [Software](#software)
+  - [Solder the PMW3610 to the sensor board](#solder-the-pmw3610-to-the-sensor-board)
+  - [Solder the nice!nano holder components](#solder-the-nicenano-holder-components)
+  - [Install the battery into the case](#install-the-battery-into-the-case)
+- [Firmware](#firmware)
+  - [Flashing the firmware](#flashing-the-firmware)
 - [Credit and thanks](#credit-and-thanks)
 # Introduction
 
-This guide is based on the [erenatas build guide](https://github.com/erenatas/charybdis-wireless-3x6).
+This guide is based on the [erenatas build guide](https://github.com/erenatas/charybdis-wireless-3x6) and the [280Zo build guide](https://github.com/280Zo/charybdis-wireless-mini-3x6-build-guide).
 
 The purpose of it is to outline how to build a Wireless (Bluetooth) Charybdis. It is focused on how to build a 3x6 Charybdis Mini specifically.
 
@@ -36,9 +40,9 @@ The exact PCBs you need will depend on which keyboard you are building, refer to
 Make sure to follow the recommendations for PCB thickness.
 
 ## PMW3610 Breakout
-[Link to Void's repo](https://github.com/victorlucachi/charybdis-pmw3610-breakout/tree/nicenano/production)
+[Link to Void's repo](https://github.com/victorlucachi/charybdis-pmw3610-breakout/tree/nicenano/production).
 
-For this PCB you will need to order it pre-assembled, and solder the PMW3610 sensor manually.
+For this PCB you will need to order it pre-assembled, and solder the PMW3610 sensor manually. The bill of materials and position files are in the repository.
 
 For the assembly, JLCPCB did not have `TCR2EF19` - but the part `TLV70018DDCR` is confirmed to work:
 ```
@@ -49,6 +53,8 @@ For the assembly, JLCPCB did not have `TCR2EF19` - but the part `TLV70018DDCR` i
 #(New) TLV70018DDCR:
 68dB@(1kHz) 200mA Fixed 1.8V Positive 5.5V SOT-23-5 Linear Voltage Regulators (LDO) ROHS
 ```
+
+An alternative is the [BastardKB PMW3610 sensor PCB fork](https://github.com/Bastardkb/charybdis-pmw3610-breakout).
 
 ## Nice!Nano Holder
 [Link to olidacombe's repo](https://github.com/olidacombe/Elite-C-holder/tree/nicenano/adapter/production)
@@ -70,7 +76,7 @@ This list is based on the electronics BOM present on the Charybdis repo as of wr
 | Name                         | Count | Link                                                                                                                       |
 | ---------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------- |
 | Trackball                    | 1     | [Perixx Europe](https://eu.perixx.com/collections/accessory/products/18010)                                                |
-| nice!nano microcontroller    | 2     | [Splitkb.com](https://splitkb.com/collections/keyboard-parts/products/nice-nano)                                           |
+| nice!nano microcontroller*    | 2     | [Splitkb.com](https://splitkb.com/collections/keyboard-parts/products/nice-nano)                                           |
 | (optional) mill max sockets  | 2     | [Splitkb.com](https://splitkb.com/collections/keyboard-parts/products/mill-max-low-profile-sockets?variant=31945995845709) |
 | SOD123 Diodes                | 41    | [Splitkb.com](https://splitkb.com/collections/keyboard-parts/products/smd-diodes)                                          |
 | Button, 4x4x1.5              | 2     | [Aliexpress](https://www.aliexpress.com/item/4001046134819.html)                                                           |
@@ -86,6 +92,7 @@ This list is based on the electronics BOM present on the Charybdis repo as of wr
 | M4 8mm Torx Screws           |       | [Aliexpress](https://www.aliexpress.com/item/1005006115217679.html)                                                        |
 | JST plug 2-pin               | 2     | [Aliexpress](https://www.aliexpress.com/item/1005006115217679.html)                                                        |
 
+*Alternatively, you can use one of the alternatives documented on [this MCU wiki](https://github.com/joric/nrfmicro/wiki/Alternatives), like the [SuperMini NRF52840 Microcontrollers](https://www.aliexpress.us/item/3256805848952479.html?gatewayAdapt=glo2usa).
 
 ### Notes
 
@@ -133,33 +140,69 @@ Some tools will make it easier to build your keyoard:
 
 Most of the steps are similar to building a Charybdis Nano. Below is an outline, with details on what needs to be done differently.
 
-1. install the screw inserts: [BastardKB Docs](http://docs.bastardkb.com/bg_cnano/04screw_inserts.html)
-1. solder the diodes: [BastardKB Docs](http://docs.bastardkb.com/bg_cnano/05diodes.html)
-1. solder the PMW3610 to sensor board
-    - There is a single orientation to solder it. You can take out the sensor cap while doing any soldering to prevent touching it with the soldering iron. Also make sure to remove the kapton tape.
-2. solder the power switch to the nice!nano holder
-3. solder the update button
-4. solder the JST female plug
-    - solder it in the same orientation as the button where I can also reach to it from the side. Assembling the nice!nano holder to the case becomes a bit tight but it barely fits without pressure
-5. solder the nice!nano
-    - [This video from Joe Scotto](https://youtu.be/l5kAx08Iom4) helped me a lot in this part. As it mentioned, temperature on nice!nano is important - do not go above 300 degrees Celsius!
-    - **Important** If you run into issues with wiring and in need to do desoldering, make sure to take out the nice!nano first!
-6. try connecting the battery and checking if the nice!nano works
-7. install the ribbon cables (including sensor board): [BastardKB Docs](http://docs.bastardkb.com/bg_cnano/07ribbon_cables.html)
-    - Make sure to cut off extending parts of the cables after soldering to keep the PCBs flat, it will make installing the switches much easier
-8. power it on, grab a tweezer and check that each switch and sensor is working
-    - you can use your finger to check that the sensor works correctly. If not you may have issues with wiring
-9. install and solder switches, make sure to follow the order detailed in the official docs
-10. install the sensor board
+## Solder the PMW3610 to the sensor board
 
-# Software
+There is a single orientation to solder it. You can take out the sensor cap while doing any soldering to prevent touching it with the soldering iron. Also make sure to remove the kapton tape.
 
-Connecting the nice!nano for the first time is its reset mode, all you need to do is to drag and drop the built image - which will flash the n!n. Right hand is the main controller which you can connect to via bluetooth, and the left hand connects automatically to the right.
+## Solder the nice!nano holder components
+
+Solder on the power switches, and reset buttons to the left and right nano holder PCBs. Then solder on the JST female connectors. 
+Position this so the red wire on the male side would be the battery's positive connection, and the black wire the negative connection.
+
+Solder the MCUs to the nano holders using the standard pin headers or the socketed pin headers, depending on what you chose to order to mount the MCU.
+
+The MCUs should be face down (components facing towards the nano holder PCB), and the top through holes on either side of the USB connector will not have a spot on the nice!nano PCB.
+
+Do not set your soldering iron any higher than 300°C, as it might damage the nice!nano.
+
+
+You can use [this video from Joe Scotto](https://youtu.be/l5kAx08Iom4) to help.
+
+![nice!nano installed](images/nano_holder.jpg)
+
+Being careful to not short any connections, connect the JST battery connections, turn the switch to the on position, and confirm the MCU powers on.
+
+If all goes well, unplug the battery and continue the assembly.
+
+## Install the battery into the case
+
+You can either mount the battery between the MCU and holder PCB, or tape it to the case.
+
+![nice!nano installed](images/battery.jpg)
+
+# Firmware
+
+The firmware can be downloaded from the [charybdis-wireless-mini-zmk-firmware repository](https://github.com/280Zo/charybdis-wireless-mini-zmk-firmware) by opening [the Actions tab](https://github.com/280Zo/charybdis-wireless-mini-zmk-firmware/actions), clicking on the latest successful run, then downloading the firmware file under Artifacts.
+
+The main branch builds firmware for the colemak dh key layout. The layouts/qwerty branch builds firmware for the qwerty layout. Make sure you pick the correct branch for your needs.
+
+![branch names](images/branch_names.png)
+
+Customizing the firmware is pretty straight forward. Common changes might include swapping the central and peripheral halves, changing the keyboard name, or modifying the key bindings. See the firmware repo for details on how to make changes.
+
+Note that the official ZMK firmware doesn't support the PMW3610 or mouse movement keys, both of which are used in the firmware above. To get a working firmware I leveraged [the work of inorichi](https://github.com/inorichi) to get the PMW3610 driver, and [the work of petejohanson](https://github.com/petejohanson) for the driver to allow pointer movement and scrolling with keys.
+
+Official ZMK support for mouse keys [is being worked on](https://github.com/zmkfirmware/zmk/pull/778), and when it's merged I'll switch back to the official ZMK firmware for the builds.
+
+Additional links:
 
 - erenata's ZMK config: [https://github.com/erenatas/zmk-config-charybdis-mini-wireless](https://github.com/erenatas/zmk-config-charybdis-mini-wireless)
 - EIGA's config: [[EIGA's config repo](https://github.com/erenatas/zmk-config)](https://github.com/erenatas/zmk-config)
 
 Erenata added scroll support via forking [@grassfedreeve](https://github.com/grassfedreeve)'s config and adapted it to 3x6 mini. 
+
+## Flashing the firmware
+
+To flash each side of the keyboard, follow the steps below:
+
+- Unzip the firmware.zip file you downloaded
+- Plug the right half info the computer through USB
+- Double press the reset button you soldered onto the nano holder PCB
+- The keyboard will mount as a removable storage device
+- Copy the charybdis_right-nice_nano_v2-zmk.uf2 file into the NICENANO storage device.
+- It will take a few seconds, then it will unmount and restart itself.
+- Do the same with the left half, and copy the charybdis_left-nice_nano_v2-zmk.uf2 file.
+- Both halves of the keyboard should now be flashed with the firmware.
 
 # Credit and thanks
 
