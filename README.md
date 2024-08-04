@@ -123,7 +123,7 @@ For this build specifically, a JST plug was used to be able to take out the batt
 
 ## Helper Tools
 
-Some tools will make it easier to build your keyoard:
+Some tools will make it easier to build your keyboard:
 
 - solder Iron: It's strongly recommended to get a good quality solder iron where you can change the temperature. From my research I have found that Hakko solder irons are overwhelmingly popular, however they are expensive. If you are not planning to build keyboards for a living, you can cut some costs by a cheaper alternative. I myself bought a [GALLUNOPTIMAL GOSprint150](https://www.amazon.nl/dp/B091J6TB43). Others have had success with the Pinecil.
 - solder: There are two types of solder that can be used, leaded and lead-free. While leaded solder melts easier and its easier to desolder, lead itself is toxic, therefore its important not to inhale it. You can put a fan in front of you and have good ventilation and possibly wear a mask. Lead-free solder is a safer choice, but it melts harder and is harder to desolder. Make sure to wash your hands after you are done! Using solder with a rosin core also makes it much easier to use.
